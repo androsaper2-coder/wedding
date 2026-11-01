@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#eee5d6" />
+  <title>Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="scene">
+    <div class="grain"></div>
+    <svg class="sprig sprig-left" viewBox="0 0 220 520" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M15 505 Q90 330 175 20"/><path d="M49 421 Q5 387 12 344 Q53 355 49 421Z M68 370 Q111 336 105 294 Q68 315 68 370Z M91 300 Q43 273 51 230 Q93 250 91 300Z M112 224 Q154 192 146 151 Q110 177 112 224Z M136 145 Q91 116 104 77 Q143 99 136 145Z"/><path d="M30 455 Q70 430 87 391 M78 337 Q119 310 129 272 M113 226 Q77 203 78 167"/></g><g fill="currentColor" opacity=".65"><circle cx="12" cy="344" r="3"/><circle cx="105" cy="294" r="3"/><circle cx="51" cy="230" r="3"/><circle cx="146" cy="151" r="3"/><circle cx="104" cy="77" r="3"/></g></svg>
+    <svg class="sprig sprig-right" viewBox="0 0 220 520" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M205 505 Q130 330 45 20"/><path d="M171 421 Q215 387 208 344 Q167 355 171 421Z M152 370 Q109 336 115 294 Q152 315 152 370Z M129 300 Q177 273 169 230 Q127 250 129 300Z M108 224 Q66 192 74 151 Q110 177 108 224Z M84 145 Q129 116 116 77 Q77 99 84 145Z"/><path d="M190 455 Q150 430 133 391 M142 337 Q101 310 91 272 M107 226 Q143 203 142 167"/></g><g fill="currentColor" opacity=".65"><circle cx="208" cy="344" r="3"/><circle cx="115" cy="294" r="3"/><circle cx="169" cy="230" r="3"/><circle cx="74" cy="151" r="3"/><circle cx="116" cy="77" r="3"/></g></svg>
+
+    <header class="top-note"><span class="tiny-flower">✿</span> A little note for you <span class="tiny-flower">✿</span></header>
+
+    <section class="envelope-stage" id="stage" aria-label="Wedding invitation envelope">
+      <div class="envelope" id="envelope">
+        <div class="letter" id="letter">
+          <div class="letter-inner">
+            <p class="eyebrow">Together with their families</p>
+            <p class="invite-line">joyfully invite you to celebrate</p>
+            <h1 id="coupleNames">Andrew <i>&</i> [Bride]</h1>
+            <div class="ornament"><span></span> ❦ <span></span></div>
+            <p class="invite-line">as they begin their forever</p>
+            <p class="date" id="dateText">01 · 05 · 2027</p>
+            <p class="venue" id="venueText">The celebration will take place at</p>
+            <p class="place" id="placeText">[Venue Name · Address]</p>
+            <p class="time" id="timeText">[Time]</p>
+            <p class="closing">Your presence is the greatest gift</p>
+            <p class="monogram" id="monogramInside">A & B</p>
+          </div>
+        </div>
+        <div class="envelope-back"></div>
+        <div class="envelope-pocket"></div>
+        <div class="flap"></div>
+        <button class="seal" id="openButton" aria-label="Open the invitation"><span id="sealLetters">A&amp;B</span></button>
+      </div>
+      <p class="tap-hint" id="hint">Tap the seal to open your invitation</p>
+    </section>
+    <footer>MADE WITH LOVE <span>·</span> 2027</footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
