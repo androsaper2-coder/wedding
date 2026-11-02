@@ -3,811 +3,915 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5eee3">
-<title>Andro & Margaret | Forever Begins</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4eadb">
+<title>Andro & Margaret | Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{
- --cream:#f8f2e8;
- --paper:#fffaf1;
- --gold:#b99a6c;
- --gold2:#dfc99e;
- --brown:#614936;
- --wine:#823e4a;
- --green:#7e8871;
+:root {
+  --cream: #f7efe3;
+  --paper: #fffaf1;
+  --gold: #b99a6c;
+  --gold-light: #e4d0aa;
+  --brown: #654a35;
+  --wine: #843d49;
+  --green: #87917a;
 }
 
-*{box-sizing:border-box}
-
-html,body{
- margin:0;
- width:100%;
- height:100%;
- overflow:hidden;
+* {
+  box-sizing: border-box;
 }
 
-body{
- font-family:Montserrat,sans-serif;
- background:
- radial-gradient(ellipse at 50% 45%,#fffaf1 0%,#eee1cf 65%,#d1bda1 100%);
- color:var(--brown);
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
-.scene{
- width:100%;
- height:100vh;
- height:100dvh;
- position:relative;
- overflow:hidden;
- display:flex;
- justify-content:center;
- align-items:center;
- perspective:1600px;
- isolation:isolate;
+body {
+  font-family: Montserrat, sans-serif;
+  background:
+    radial-gradient(ellipse at center, #fff9ee 0%, #eee0cc 65%, #cbb99e 100%);
+  color: var(--brown);
 }
 
-/* Background atmosphere */
-
-.light{
- position:absolute;
- width:75vw;
- height:75vw;
- border-radius:50%;
- background:#fff8e9;
- filter:blur(75px);
- opacity:.75;
- z-index:-1;
+button {
+  font-family: inherit;
 }
 
-.glow{
- position:absolute;
- inset:0;
- background:
- radial-gradient(ellipse at 10% 20%,#fff8e9a0,transparent 30%),
- radial-gradient(ellipse at 90% 80%,#d3b68b55,transparent 35%);
- pointer-events:none;
+/* BACKGROUND */
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+  isolation: isolate;
 }
 
-/* Floating floral details */
-
-.flower{
- position:absolute;
- width:140px;
- height:180px;
- opacity:.65;
- pointer-events:none;
- z-index:0;
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 20%, #fff9e9 0%, transparent 35%),
+    radial-gradient(ellipse at 85% 80%, #d6c09b55 0%, transparent 35%);
 }
 
-.flower.left{
- left:-24px;
- top:10%;
- transform:rotate(-12deg);
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: .12;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E");
 }
 
-.flower.right{
- right:-24px;
- bottom:9%;
- transform:rotate(165deg);
+/* FLORAL DECORATION */
+
+.flower {
+  position: absolute;
+  width: 145px;
+  height: 190px;
+  opacity: .75;
+  pointer-events: none;
+  z-index: 1;
+  animation: flowerFloat 8s ease-in-out infinite;
 }
 
-.flower svg{
- width:100%;
- height:100%;
- overflow:visible;
+.flower.left {
+  left: -25px;
+  top: 9%;
 }
 
-.floating{
- animation:float 7s ease-in-out infinite;
+.flower.right {
+  right: -25px;
+  bottom: 8%;
+  transform: rotate(165deg);
 }
 
-@keyframes float{
- 0%,100%{transform:translateY(0) rotate(-3deg)}
- 50%{transform:translateY(-13px) rotate(3deg)}
+@keyframes flowerFloat {
+  0%,100% { translate: 0 0; }
+  50% { translate: 0 -12px; }
 }
 
-/* Heading */
+/* TOP BRAND */
 
-.heading{
- position:absolute;
- top:max(20px,env(safe-area-inset-top));
- width:100%;
- text-align:center;
- z-index:2;
- transition:.9s;
+.brand {
+  position: absolute;
+  top: max(22px, env(safe-area-inset-top));
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  transition: .8s ease;
 }
 
-.heading .eyebrow{
- font-size:8px;
- letter-spacing:5px;
- color:#a68b62;
+.brand-small {
+  font-size: 8px;
+  letter-spacing: 5px;
+  color: #a88c63;
 }
 
-.heading h1{
- font:clamp(38px,9vw,62px) 'Great Vibes',cursive;
- font-weight:400;
- color:#76583d;
- margin:5px 0;
+.brand-title {
+  font: clamp(36px, 8vw, 55px) 'Great Vibes', cursive;
+  color: #72543a;
+  margin: 3px 0;
 }
 
-.heading .subtitle{
- font-size:8px;
- letter-spacing:4px;
- color:#b49a71;
+.brand-line {
+  width: 85px;
+  height: 1px;
+  margin: 5px auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-.heading .rule{
- width:80px;
- height:1px;
- margin:9px auto;
- background:linear-gradient(90deg,transparent,var(--gold),transparent);
+.brand-sub {
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: #a58a62;
 }
 
-/* Stage */
-
-.stage{
- width:min(86vw,390px);
- height:min(500px,65dvh);
- min-height:350px;
- position:relative;
- transform-style:preserve-3d;
- margin-top:42px;
+.scene.open .brand {
+  opacity: 0;
+  transform: translateY(-25px);
+  pointer-events: none;
 }
 
-/* Invitation */
+/* MAIN STAGE */
 
-.letter{
- position:absolute;
- left:5%;
- width:90%;
- height:94%;
- bottom:2%;
- z-index:1;
-
- background:
- linear-gradient(145deg,#fffdf7,#f3e7d4);
-
- border:1px solid #c9ad80;
-
- box-shadow:
- 0 12px 35px #5b40221c,
- inset 0 0 0 6px #fff9ed,
- inset 0 0 0 7px #d7c29d;
-
- opacity:0;
- visibility:hidden;
- transform:translateY(20%) scale(.94);
-
- transition:
- transform 1.5s cubic-bezier(.16,1,.3,1),
- opacity .8s,
- visibility .8s;
+.stage {
+  position: relative;
+  width: min(88vw, 410px);
+  height: min(73dvh, 560px);
+  min-height: 390px;
+  margin-top: 35px;
+  transform-style: preserve-3d;
+  perspective: 1500px;
 }
 
-.letter:before{
- content:"";
- position:absolute;
- inset:14px;
- border:1px solid #d3bd95;
- pointer-events:none;
+/* INVITATION CARD */
+
+.letter {
+  position: absolute;
+  left: 8%;
+  width: 84%;
+  height: 76%;
+  bottom: 15%;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(145deg, #fffdf8, #f5ead9);
+
+  border: 1px solid #c5a678;
+
+  box-shadow:
+    0 15px 35px #684a2922,
+    inset 0 0 0 6px #fffaf0,
+    inset 0 0 0 7px #d8c29b;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(62%) scale(.96);
+
+  transition:
+    transform 1.6s cubic-bezier(.16,1,.3,1),
+    opacity .8s ease,
+    visibility .8s;
 }
 
-.letter-content{
- height:100%;
- position:relative;
- z-index:2;
- padding:22px 15px;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- text-align:center;
+.letter:before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid #d1b991;
+  pointer-events: none;
 }
 
-.letter-label{
- font-size:8px;
- letter-spacing:4px;
- color:#a48a60;
- margin-bottom:12px;
+.letter:after {
+  content: "";
+  position: absolute;
+  inset: 19px;
+  border: 1px solid #eadcc5;
+  pointer-events: none;
 }
 
-.monogram{
- font:42px 'Great Vibes',cursive;
- color:#ae8c59;
- line-height:1;
+.letter-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.intro{
- font:11px 'Cormorant Garamond',serif;
- letter-spacing:2px;
- color:#806b52;
- margin:13px 0 8px;
- text-transform:uppercase;
+.reveal {
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.8,.2,1);
 }
 
-.names{
- display:flex;
- flex-direction:column;
- align-items:center;
- line-height:.9;
+.scene.open .reveal {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.name{
- font:clamp(48px,12vw,65px) 'Great Vibes',cursive;
- color:#63452f;
- white-space:nowrap;
+.scene.open .reveal:nth-child(1) { transition-delay: 1.15s; }
+.scene.open .reveal:nth-child(2) { transition-delay: 1.35s; }
+.scene.open .reveal:nth-child(3) { transition-delay: 1.55s; }
+.scene.open .reveal:nth-child(4) { transition-delay: 1.75s; }
+.scene.open .reveal:nth-child(5) { transition-delay: 1.95s; }
+.scene.open .reveal:nth-child(6) { transition-delay: 2.15s; }
+.scene.open .reveal:nth-child(7) { transition-delay: 2.35s; }
+
+.card-eyebrow {
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: #a48a60;
 }
 
-.and{
- font:italic 23px 'Cormorant Garamond',serif;
- color:#b39769;
- margin:7px 0;
+.monogram {
+  font: 43px 'Great Vibes', cursive;
+  color: #b09261;
+  margin: 10px 0 5px;
 }
 
-.ornament{
- display:flex;
- align-items:center;
- justify-content:center;
- gap:12px;
- margin:13px 0 7px;
- color:#b99a6c;
+.invite-text {
+  font: 14px 'Cormorant Garamond', serif;
+  line-height: 1.4;
+  letter-spacing: 1.6px;
+  color: #8a745a;
+  text-transform: uppercase;
+  margin: 8px 0 14px;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: .95;
+}
+
+.name {
+  font: clamp(49px, 12vw, 68px) 'Great Vibes', cursive;
+  color: #684a34;
+  white-space: nowrap;
+}
+
+.and {
+  font: italic 23px 'Cormorant Garamond', serif;
+  color: #b99a6c;
+  margin: 5px 0;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #b99a6c;
+  margin: 15px 0 8px;
 }
 
 .ornament:before,
-.ornament:after{
- content:"";
- width:38px;
- height:1px;
- background:#c5aa7e;
+.ornament:after {
+  content: "";
+  width: 38px;
+  height: 1px;
+  background: #c9ae80;
 }
 
-.ornament span{font-size:13px}
-
-.date{
- font:26px 'Cormorant Garamond',serif;
- letter-spacing:4px;
- color:#9b7950;
+.date {
+  font: 27px 'Cormorant Garamond', serif;
+  letter-spacing: 4px;
+  color: #9b7950;
 }
 
-.date-label{
- font-size:8px;
- letter-spacing:3px;
- color:#9b8666;
- margin-top:3px;
+.date-label {
+  margin-top: 5px;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: #9e8766;
 }
 
-.photo{
- width:62%;
- height:clamp(90px,15dvh,125px);
- padding:5px;
- border:1px solid #c6a779;
- background:white;
- margin:12px auto 5px;
- box-shadow:0 5px 15px #4c38201b;
- opacity:0;
- transform:translateY(20px);
- transition:1s 1.1s;
+.card-footer {
+  margin-top: 18px;
+  font: italic 16px 'Cormorant Garamond', serif;
+  color: #917653;
 }
 
-.photo img{
- width:100%;
- height:100%;
- object-fit:cover;
- object-position:center 35%;
- display:block;
+.signature {
+  font: 25px 'Great Vibes', cursive;
+  color: #a28559;
+  margin-top: 8px;
 }
 
-.photo-placeholder{
- width:100%;
- height:100%;
- display:grid;
- place-items:center;
- background:linear-gradient(140deg,#eee1cf,#fffaf1);
- font:italic 16px 'Cormorant Garamond',serif;
- color:#a68a62;
+/* ENVELOPE BASE */
+
+.envelope {
+  position: absolute;
+  left: 0;
+  bottom: 5%;
+  width: 100%;
+  height: 47%;
+  z-index: 4;
+  transform-style: preserve-3d;
+  transition: transform 1.4s cubic-bezier(.2,.8,.2,1);
 }
 
-.bottom-message{
- font:italic 15px 'Cormorant Garamond',serif;
- color:#806a50;
- margin:5px 0;
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, #f9efdf, #dfc8a5);
+  border: 1px solid #c7aa7b;
+  box-shadow:
+    inset 0 0 0 5px #f8efdf,
+    inset 0 0 0 6px #d5bd93,
+    0 15px 30px #5c42241c;
 }
 
-.signature{
- font:25px 'Great Vibes',cursive;
- color:#a28559;
+/* SIDE FOLDS */
+
+.fold-left,
+.fold-right,
+.fold-bottom {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-/* Envelope */
-
-.envelope{
- position:absolute;
- bottom:7%;
- left:0;
- width:100%;
- height:59%;
- z-index:5;
- transform-style:preserve-3d;
- transition:transform 1.5s cubic-bezier(.2,.8,.2,1);
+.fold-left {
+  background: linear-gradient(120deg, #f9efdf, #e5d2b4);
+  clip-path: polygon(0 0, 53% 52%, 0 100%);
+  z-index: 5;
 }
 
-.envelope-back{
- position:absolute;
- inset:0;
- background:
- linear-gradient(140deg,#f7ecd9,#e3ceb0);
- border:1px solid #c6a779;
- box-shadow:
- inset 0 0 0 5px #f8eedf,
- inset 0 0 0 6px #d4bb91;
+.fold-right {
+  background: linear-gradient(240deg, #f9efdf, #dfc9a8);
+  clip-path: polygon(100% 0, 47% 52%, 100% 100%);
+  z-index: 5;
 }
 
-.envelope-back:after{
- content:"";
- position:absolute;
- inset:12px;
- border:1px solid #c7ac80;
- opacity:.65;
+.fold-bottom {
+  background: linear-gradient(15deg, #d8bd94, #f8ecda);
+  clip-path: polygon(0 100%, 50% 39%, 100% 100%);
+  z-index: 6;
+  filter: drop-shadow(0 -2px 3px #74532a20);
 }
 
-/* Side folds */
+/* ENVELOPE FLAP */
 
-.fold-left{
- position:absolute;
- inset:0;
- background:linear-gradient(120deg,#ead8bb,#f9efdf);
- clip-path:polygon(0 0,54% 52%,0 100%);
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  z-index: 8;
+
+  transform-origin: top center;
+  transform-style: preserve-3d;
+
+  transition:
+    transform 1.35s cubic-bezier(.2,.8,.2,1);
 }
 
-.fold-right{
- position:absolute;
- inset:0;
- background:linear-gradient(240deg,#e4cfad,#faf1e3);
- clip-path:polygon(100% 0,46% 52%,100% 100%);
+.flap-front,
+.flap-back {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  backface-visibility: hidden;
 }
 
-.fold-bottom{
- position:absolute;
- inset:0;
- background:linear-gradient(15deg,#d7bd96,#f5e8d4);
- clip-path:polygon(0 100%,50% 40%,100% 100%);
- border-bottom:1px solid #c4a779;
+.flap-front {
+  background: linear-gradient(145deg, #fff8e9, #e7d2b0);
+  border-top: 1px solid #c4a477;
 }
 
-/* Top envelope flap */
-
-.flap{
- position:absolute;
- top:0;
- left:0;
- width:100%;
- height:77%;
- transform-origin:top center;
- transform-style:preserve-3d;
- transition:transform 1.35s cubic-bezier(.2,.8,.2,1);
- z-index:6;
+.flap-back {
+  background: linear-gradient(145deg, #f5e5ce, #d3b88d);
+  transform: rotateX(180deg);
 }
 
-.flap-front,.flap-back{
- position:absolute;
- inset:0;
- clip-path:polygon(0 0,100% 0,50% 100%);
- backface-visibility:hidden;
+/* RIBBON */
+
+.ribbon {
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  top: 34%;
+  width: 32px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    #b2936c,
+    #f3e4ca 40%,
+    #d0b48a 75%,
+    #a78a61
+  );
+  box-shadow: 0 3px 9px #77542d25;
+  transition: transform .9s, opacity .7s;
 }
 
-.flap-front{
- background:linear-gradient(145deg,#fff8eb,#e7d4b5);
- filter:drop-shadow(0 3px 4px #6c4c2d22);
+.ribbon:before,
+.ribbon:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  width: 47px;
+  height: 23px;
+  border: 4px solid #c9ad82;
 }
 
-.flap-back{
- background:linear-gradient(145deg,#f5e6cf,#d6bc93);
- transform:rotateX(180deg);
+.ribbon:before {
+  left: -28px;
+  border-radius: 70% 20% 70% 20%;
+  transform: rotate(20deg);
 }
 
-/* Silk ribbon */
-
-.ribbon{
- position:absolute;
- z-index:7;
- left:50%;
- top:36%;
- width:35px;
- height:110%;
- transform:translateX(-50%);
- background:linear-gradient(90deg,#a98860,#f0dfc1 35%,#d6bc93 70%,#a98961);
- box-shadow:0 3px 9px #77542d25;
- transition:transform 1s,opacity .7s;
+.ribbon:after {
+  left: 9px;
+  border-radius: 20% 70% 20% 70%;
+  transform: rotate(-20deg);
 }
 
-.ribbon:before{
- content:"";
- position:absolute;
- top:8px;
- left:-31px;
- width:60px;
- height:28px;
- border:5px solid #c9ad82;
- border-radius:70% 20% 70% 20%;
- transform:rotate(20deg);
+/* WAX SEAL */
+
+.seal {
+  position: absolute;
+  z-index: 12;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: 2px solid #dfbd87;
+
+  background:
+    radial-gradient(circle at 28% 22%, #c17e7c, #873d49 55%, #511e29);
+
+  box-shadow:
+    inset 0 3px 8px #f4b9a9,
+    inset 0 -8px 12px #461a24,
+    0 9px 20px #55351d44;
+
+  color: #f6dfbb;
+  font: 33px 'Great Vibes', cursive;
+
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  animation: sealPulse 3s ease-in-out infinite;
+  transition: .8s;
 }
 
-.ribbon:after{
- content:"";
- position:absolute;
- top:8px;
- left:5px;
- width:60px;
- height:28px;
- border:5px solid #c9ad82;
- border-radius:20% 70% 20% 70%;
- transform:rotate(-20deg);
+.seal:before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid #e4c99d;
+  border-radius: 50%;
 }
 
-/* Wax seal */
-
-.seal{
- position:absolute;
- left:50%;
- top:43%;
- z-index:9;
- transform:translate(-50%,-50%);
- width:83px;
- height:83px;
- border-radius:50%;
- border:2px solid #e0bd85;
-
- background:
- radial-gradient(circle at 28% 22%,#bd7778,#873d49 55%,#501d29);
-
- box-shadow:
- inset 0 3px 8px #f4b9a9,
- inset 0 -8px 12px #461a24,
- 0 9px 20px #55351d44;
-
- color:#f6dfbb;
- font:32px 'Great Vibes',cursive;
- display:grid;
- place-items:center;
- cursor:pointer;
- transition:.8s;
- animation:sealGlow 3s infinite;
+.seal span {
+  position: relative;
+  z-index: 1;
 }
 
-.seal:before{
- content:"";
- position:absolute;
- inset:8px;
- border:1px solid #e4c99d;
- border-radius:50%;
+@keyframes sealPulse {
+  50% {
+    box-shadow:
+      0 0 25px #b58b5444,
+      inset 0 3px 8px #f4b9a9,
+      0 9px 20px #55351d44;
+  }
 }
 
-.seal span{position:relative;z-index:1}
+/* OPEN STATE */
 
-@keyframes sealGlow{
- 50%{box-shadow:0 0 28px #b58b5444,inset 0 3px 8px #f4b9a9,0 9px 20px #55351d44}
+.scene.open .flap {
+  transform: rotateX(180deg);
+  z-index: 3;
 }
 
-/* Opening */
-
-.stage.open .heading{
- opacity:0;
- transform:translateY(-20px);
+.scene.open .seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.1) rotate(45deg);
+  pointer-events: none;
 }
 
-.stage.open .flap{
- transform:rotateX(180deg);
- z-index:3;
+.scene.open .ribbon {
+  transform: translateX(-50%) translateY(-130%);
+  opacity: 0;
 }
 
-.stage.open .seal{
- opacity:0;
- transform:translate(-50%,-50%) scale(.1) rotate(45deg);
- pointer-events:none;
+.scene.open .letter {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-3%) scale(1);
 }
 
-.stage.open .ribbon{
- transform:translateX(-50%) translateY(-150%);
- opacity:0;
+/* PETALS */
+
+.petal {
+  position: fixed;
+  top: -25px;
+  width: 10px;
+  height: 15px;
+  border-radius: 80% 0 80% 0;
+  background: linear-gradient(140deg, #fffdf5, #d8c4a4);
+  z-index: 20;
+  pointer-events: none;
+  animation: petalFall linear forwards;
 }
 
-.stage.open .letter{
- visibility:visible;
- opacity:1;
- z-index:8;
- transform:translateY(-7%) scale(1);
+@keyframes petalFall {
+  to {
+    transform: translate(var(--move), 110vh) rotate(700deg);
+    opacity: 0;
+  }
 }
 
-.stage.open .photo{
- opacity:1;
- transform:translateY(0);
+/* OPEN BUTTON */
+
+.hint {
+  position: absolute;
+  width: 100%;
+  bottom: -42px;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #a58a60;
+  animation: hintPulse 2s infinite;
+  transition: .4s;
 }
 
-.stage.open .envelope{
- transform:translateY(58%);
+@keyframes hintPulse {
+  50% { opacity: .45; }
 }
 
-/* Petals */
-
-.petal{
- position:fixed;
- top:-25px;
- width:10px;
- height:15px;
- border-radius:80% 0 80% 0;
- background:linear-gradient(140deg,#fffdf5,#d8c4a4);
- z-index:15;
- pointer-events:none;
- animation:fall linear forwards;
+.close {
+  position: absolute;
+  z-index: 15;
+  left: 50%;
+  bottom: -48px;
+  transform: translateX(-50%);
+  padding: 11px 23px;
+  border-radius: 40px;
+  border: 1px solid #c2a375;
+  background: #fffaf0;
+  color: #74573a;
+  font-size: 8px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  transition: .5s;
 }
 
-@keyframes fall{
- to{
- transform:translate(var(--move),110vh) rotate(700deg);
- opacity:0;
- }
+.scene.open .hint {
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Controls */
-
-.hint{
- position:absolute;
- bottom:-43px;
- width:100%;
- text-align:center;
- font-size:8px;
- letter-spacing:3px;
- color:#a58a60;
- animation:pulse 2s infinite;
+.scene.open .close {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.close{
- position:absolute;
- left:50%;
- bottom:-50px;
- transform:translateX(-50%);
- padding:11px 24px;
- border-radius:40px;
- border:1px solid #c2a375;
- background:#fffaf0;
- color:#74573a;
- font-size:8px;
- letter-spacing:3px;
- white-space:nowrap;
- opacity:0;
- pointer-events:none;
- cursor:pointer;
- transition:.5s;
+/* RESPONSIVE */
+
+@media (max-height: 700px) {
+  .brand {
+    top: 8px;
+  }
+
+  .brand-title {
+    font-size: 38px;
+  }
+
+  .stage {
+    height: 65dvh;
+    min-height: 350px;
+    margin-top: 30px;
+  }
+
+  .letter-content {
+    padding: 12px 9px;
+  }
+
+  .name {
+    font-size: 44px;
+  }
+
+  .monogram {
+    font-size: 34px;
+    margin: 5px 0;
+  }
+
+  .invite-text {
+    font-size: 12px;
+    margin: 5px 0 9px;
+  }
+
+  .date {
+    font-size: 22px;
+  }
+
+  .ornament {
+    margin: 8px 0 5px;
+  }
+
+  .card-footer {
+    margin-top: 9px;
+    font-size: 14px;
+  }
+
+  .signature {
+    font-size: 21px;
+    margin-top: 4px;
+  }
+
+  .seal {
+    width: 70px;
+    height: 70px;
+  }
 }
 
-.stage.open .close{
- opacity:1;
- pointer-events:auto;
+@media (max-width: 370px) {
+  .stage {
+    width: 90vw;
+  }
+
+  .name {
+    font-size: 43px;
+  }
+
+  .card-eyebrow {
+    font-size: 7px;
+  }
+
+  .invite-text {
+    font-size: 11px;
+  }
+
+  .letter-content {
+    padding: 9px;
+  }
 }
 
-/* Responsive */
-
-@media(max-height:690px){
- .heading{top:7px}
- .heading h1{font-size:39px;margin:2px}
- .heading .rule{margin:5px auto}
- .stage{height:62dvh;min-height:320px;margin-top:34px}
- .letter-content{padding:12px}
- .name{font-size:43px}
- .photo{height:78px;margin:6px auto}
- .date{font-size:22px}
- .seal{width:69px;height:69px}
- .ribbon{width:27px}
+@media (min-width: 700px) {
+  .stage {
+    width: 410px;
+    height: min(560px, 75dvh);
+  }
 }
 
-@media(max-width:370px){
- .stage{width:90vw}
- .name{font-size:42px}
- .letter-content{padding:10px}
- .photo{width:58%}
-}
-
-@media(min-width:700px){
- .stage{width:390px;height:510px}
-}
-
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{
-  animation-duration:.01ms!important;
-  transition-duration:.01ms!important;
- }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<main class="scene">
+<main class="scene" id="scene">
 
-<div class="light"></div>
 <div class="glow"></div>
+<div class="grain"></div>
 
-<!-- Floral decoration -->
-<div class="flower left floating">
-<svg viewBox="0 0 150 180" fill="none">
-<path d="M20 175 Q65 90 80 10" stroke="#829079" stroke-width="1.5"/>
-<path d="M48 117 Q5 105 8 67 Q45 73 48 117Z" stroke="#829079" fill="#dfe1cf" fill-opacity=".45"/>
-<path d="M58 90 Q105 90 117 52 Q75 50 58 90Z" stroke="#829079" fill="#dfe1cf" fill-opacity=".45"/>
-<g fill="#fffaf1" stroke="#c9b38d">
-<ellipse cx="79" cy="27" rx="6" ry="12"/>
-<ellipse cx="79" cy="27" rx="6" ry="12" transform="rotate(60 79 27)"/>
-<ellipse cx="79" cy="27" rx="6" ry="12" transform="rotate(120 79 27)"/>
-<ellipse cx="79" cy="27" rx="6" ry="12" transform="rotate(180 79 27)"/>
-<ellipse cx="79" cy="27" rx="6" ry="12" transform="rotate(240 79 27)"/>
-<ellipse cx="79" cy="27" rx="6" ry="12" transform="rotate(300 79 27)"/>
-</g>
-<circle cx="79" cy="27" r="4" fill="#d5b67d"/>
-<g fill="#fffaf1" stroke="#c9b38d">
-<circle cx="105" cy="17" r="5"/>
-<circle cx="115" cy="25" r="5"/>
-<circle cx="101" cy="32" r="5"/>
-<circle cx="91" cy="15" r="5"/>
-</g>
+<!-- LEFT FLOWER -->
+<div class="flower left">
+<svg viewBox="0 0 150 190" fill="none">
+  <path d="M18 185 Q60 95 80 12" stroke="#87917a" stroke-width="1.5"/>
+  <path d="M45 125 Q5 110 8 75 Q43 79 45 125Z" stroke="#87917a" fill="#dfe1cf" fill-opacity=".45"/>
+  <path d="M57 91 Q100 93 118 53 Q78 49 57 91Z" stroke="#87917a" fill="#dfe1cf" fill-opacity=".45"/>
+  <g fill="#fffaf1" stroke="#c9b38d">
+    <ellipse cx="80" cy="27" rx="6" ry="12"/>
+    <ellipse cx="80" cy="27" rx="6" ry="12" transform="rotate(60 80 27)"/>
+    <ellipse cx="80" cy="27" rx="6" ry="12" transform="rotate(120 80 27)"/>
+    <ellipse cx="80" cy="27" rx="6" ry="12" transform="rotate(180 80 27)"/>
+    <ellipse cx="80" cy="27" rx="6" ry="12" transform="rotate(240 80 27)"/>
+    <ellipse cx="80" cy="27" rx="6" ry="12" transform="rotate(300 80 27)"/>
+  </g>
+  <circle cx="80" cy="27" r="4" fill="#d5b67d"/>
+  <g fill="#fffaf1" stroke="#c9b38d">
+    <circle cx="105" cy="17" r="5"/>
+    <circle cx="115" cy="25" r="5"/>
+    <circle cx="101" cy="32" r="5"/>
+    <circle cx="91" cy="15" r="5"/>
+  </g>
 </svg>
 </div>
 
-<div class="flower right floating">
-<svg viewBox="0 0 150 180" fill="none">
-<path d="M20 175 Q65 90 80 10" stroke="#829079" stroke-width="1.5"/>
-<path d="M48 117 Q5 105 8 67 Q45 73 48 117Z" stroke="#829079" fill="#dfe1cf" fill-opacity=".45"/>
-<path d="M58 90 Q105 90 117 52 Q75 50 58 90Z" stroke="#829079" fill="#dfe1cf" fill-opacity=".45"/>
-<g fill="#fffaf1" stroke="#c9b38d">
-<circle cx="79" cy="27" r="7"/>
-<circle cx="91" cy="17" r="6"/>
-<circle cx="101" cy="29" r="6"/>
-<circle cx="91" cy="39" r="6"/>
-<circle cx="68" cy="18" r="6"/>
-<circle cx="68" cy="39" r="6"/>
-</g>
-<circle cx="79" cy="27" r="4" fill="#d5b67d"/>
+<!-- RIGHT FLOWER -->
+<div class="flower right">
+<svg viewBox="0 0 150 190" fill="none">
+  <path d="M18 185 Q60 95 80 12" stroke="#87917a" stroke-width="1.5"/>
+  <path d="M45 125 Q5 110 8 75 Q43 79 45 125Z" stroke="#87917a" fill="#dfe1cf" fill-opacity=".45"/>
+  <path d="M57 91 Q100 93 118 53 Q78 49 57 91Z" stroke="#87917a" fill="#dfe1cf" fill-opacity=".45"/>
+  <g fill="#fffaf1" stroke="#c9b38d">
+    <circle cx="80" cy="27" r="7"/>
+    <circle cx="92" cy="17" r="6"/>
+    <circle cx="102" cy="29" r="6"/>
+    <circle cx="92" cy="39" r="6"/>
+    <circle cx="68" cy="18" r="6"/>
+    <circle cx="68" cy="39" r="6"/>
+  </g>
+  <circle cx="80" cy="27" r="4" fill="#d5b67d"/>
 </svg>
 </div>
 
-<header class="heading">
- <div class="eyebrow">A SPECIAL DAY · A FOREVER LOVE</div>
- <h1>Andro &amp; Margaret</h1>
- <div class="rule"></div>
- <div class="subtitle">OUR WEDDING INVITATION</div>
+<header class="brand">
+  <div class="brand-small">A SPECIAL DAY · A FOREVER LOVE</div>
+  <div class="brand-title">Andro &amp; Margaret</div>
+  <div class="brand-line"></div>
+  <div class="brand-sub">OUR WEDDING INVITATION</div>
 </header>
 
 <section class="stage" id="stage">
 
-<!-- Invitation card -->
-<article class="letter">
- <div class="letter-content">
+  <!-- INVITATION -->
+  <article class="letter">
 
-  <div class="letter-label">TOGETHER WITH OUR FAMILIES</div>
+    <div class="letter-content">
 
-  <div class="monogram">A &amp; M</div>
+      <div class="card-eyebrow reveal">
+        TOGETHER WITH OUR FAMILIES
+      </div>
 
-  <p class="intro">
-   Request the pleasure of your company
-   <br>as we celebrate the wedding of
-  </p>
+      <div class="monogram reveal">
+        A &amp; M
+      </div>
 
-  <div class="names">
-   <div class="name">Andro</div>
-   <div class="and">&amp;</div>
-   <div class="name">Margaret</div>
+      <div class="invite-text reveal">
+        Request the pleasure of your company
+        <br>
+        as we celebrate the wedding of
+      </div>
+
+      <div class="names reveal">
+        <div class="name">Andro</div>
+        <div class="and">&amp;</div>
+        <div class="name">Margaret</div>
+      </div>
+
+      <div class="ornament reveal">
+        <span>✧</span>
+      </div>
+
+      <div class="date reveal">
+        01 · 05 · 2027
+      </div>
+
+      <div class="date-label reveal">
+        SATURDAY · MAY 2027
+      </div>
+
+      <div class="card-footer reveal">
+        Two hearts · One beautiful forever
+      </div>
+
+      <div class="signature reveal">
+        With love, Andro &amp; Margaret
+      </div>
+
+    </div>
+
+  </article>
+
+  <!-- ENVELOPE -->
+  <div class="envelope">
+
+    <div class="envelope-back"></div>
+
+    <div class="flap">
+      <div class="flap-front"></div>
+      <div class="flap-back"></div>
+    </div>
+
+    <div class="fold-left"></div>
+    <div class="fold-right"></div>
+    <div class="fold-bottom"></div>
+
+    <div class="ribbon"></div>
+
+    <button class="seal" id="seal" aria-label="Open invitation">
+      <span>A&amp;M</span>
+    </button>
+
   </div>
 
-  <div class="ornament"><span>✧</span></div>
-
-  <div class="date">01 · 05 · 2027</div>
-  <div class="date-label">SATURDAY · MAY 2027</div>
-
-  <div class="photo">
-   <img src="couple.jpg"
-        alt="Andro and Margaret"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-   <div class="photo-placeholder" style="display:none">
-    A beautiful beginning
-   </div>
+  <div class="hint" id="hint">
+    ✦ &nbsp; TOUCH THE SEAL TO OPEN &nbsp; ✦
   </div>
 
-  <div class="bottom-message">
-   Two hearts · One beautiful forever
-  </div>
-
-  <div class="signature">With love, Andro &amp; Margaret</div>
-
- </div>
-</article>
-
-<!-- Envelope -->
-<div class="envelope">
-
- <div class="envelope-back"></div>
- <div class="fold-left"></div>
- <div class="fold-right"></div>
- <div class="fold-bottom"></div>
-
- <div class="flap">
-  <div class="flap-front"></div>
-  <div class="flap-back"></div>
- </div>
-
- <div class="ribbon"></div>
-
- <button class="seal" id="seal">
-  <span>A&amp;M</span>
- </button>
-
-</div>
-
-<div class="hint" id="hint">
- ✦ &nbsp; OPEN THE ENVELOPE &nbsp; ✦
-</div>
-
-<button class="close" id="close">
- CLOSE INVITATION ✧
-</button>
+  <button class="close" id="close">
+    CLOSE INVITATION ✧
+  </button>
 
 </section>
 </main>
 
 <script>
-const stage = document.getElementById("stage");
+const scene = document.getElementById("scene");
 const seal = document.getElementById("seal");
-const close = document.getElementById("close");
-const hint = document.getElementById("hint");
+const closeBtn = document.getElementById("close");
 
 let opened = false;
 
-function makePetals(){
- for(let i=0;i<24;i++){
-  setTimeout(()=>{
-   const p=document.createElement("div");
-   p.className="petal";
-   p.style.left=Math.random()*100+"vw";
-   p.style.setProperty("--move",(Math.random()*150-75)+"px");
-   p.style.animationDuration=(6+Math.random()*5)+"s";
-   document.body.appendChild(p);
-   setTimeout(()=>p.remove(),12000);
-  },i*90);
- }
+function createPetals() {
+  for (let i = 0; i < 28; i++) {
+    setTimeout(() => {
+      const petal = document.createElement("div");
+
+      petal.className = "petal";
+      petal.style.left = Math.random() * 100 + "vw";
+
+      petal.style.setProperty(
+        "--move",
+        (Math.random() * 150 - 75) + "px"
+      );
+
+      petal.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+      document.body.appendChild(petal);
+
+      setTimeout(() => petal.remove(), 12000);
+    }, i * 85);
+  }
 }
 
-function openInvitation(){
- if(opened)return;
- opened=true;
- stage.classList.add("open");
- hint.style.opacity="0";
- makePetals();
+function openInvitation() {
+  if (opened) return;
+
+  opened = true;
+  scene.classList.add("open");
+
+  createPetals();
 }
 
-function closeInvitation(){
- opened=false;
- stage.classList.remove("open");
- hint.style.opacity="1";
+function closeInvitation() {
+  if (!opened) return;
+
+  opened = false;
+  scene.classList.remove("open");
 }
 
-seal.addEventListener("click",openInvitation);
-close.addEventListener("click",closeInvitation);
+seal.addEventListener("click", openInvitation);
+closeBtn.addEventListener("click", closeInvitation);
 
-document.addEventListener("keydown",e=>{
- if(e.key==="Escape")closeInvitation();
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeInvitation();
+  }
 });
 
-setInterval(()=>{
- if(document.hidden || opened)return;
- const p=document.createElement("div");
- p.className="petal";
- p.style.left=Math.random()*100+"vw";
- p.style.setProperty("--move",(Math.random()*100-50)+"px");
- p.style.animationDuration="10s";
- document.body.appendChild(p);
- setTimeout(()=>p.remove(),11000);
-},3000);
+/* Gentle floating petals before opening */
+
+setInterval(() => {
+  if (document.hidden || opened) return;
+
+  const petal = document.createElement("div");
+
+  petal.className = "petal";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.setProperty(
+    "--move",
+    (Math.random() * 80 - 40) + "px"
+  );
+
+  petal.style.animationDuration = "10s";
+
+  document.body.appendChild(petal);
+
+  setTimeout(() => petal.remove(), 11000);
+
+}, 3500);
 </script>
 
 </body>
